@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vajrika – Surya Namaskar & Meditation</title>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff0f5;--card:#ffd9e6;--accent:#d6336c;--soft:#f4a3c0;--mint:#7fd8b8;--ink:#4a1d33;--muted:#8a5a70;--line:rgba(214,51,108,.25)}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 Mulish,system-ui,sans-serif;min-height:100vh}
+h1,h2{font-family:Marcellus,Georgia,serif;font-weight:400;margin:0}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--line)}
+h1{font-size:30px;color:var(--accent);display:flex;align-items:center;gap:10px}.logo{width:30px;height:30px}.tagl{color:var(--muted);font-size:13px;margin-left:40px}
+nav{display:flex;gap:6px}
+button{font:inherit;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer}
+button:hover:not(:disabled){border-color:var(--accent)}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button:disabled{opacity:.4;cursor:not-allowed}
+nav button.on,.seg button.on{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:700}
+.primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:700;padding:10px 24px}
+main{max-width:1000px;margin:0 auto;padding:20px}
+section[hidden]{display:none}
+#sn{display:grid;grid-template-columns:1.1fr 1fr;gap:24px}
+.stage{background:linear-gradient(180deg,#ffeaf1,#ffcfe0);border-radius:18px;padding:12px;align-self:start}
+svg{width:100%;height:auto;display:block}
+.dots{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px}
+.dots button{width:30px;height:30px;padding:0;font-size:13px}
+.dots button.done{border-color:var(--accent);color:var(--accent)}
+.dots button.on{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:700}
+.breath{display:flex;align-items:center;gap:16px;margin-bottom:10px}
+.orbS{width:74px;height:74px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;flex:none}
+.orbS i,.orb i{display:block;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffc2d8,#e8548a);box-shadow:0 0 26px rgba(232,84,138,.45);transition-property:transform;transition-timing-function:ease-in-out}
+.orbS i{width:64px;height:64px;transform:scale(.5)}
+.bt{font-family:Marcellus,Georgia,serif;font-size:28px;color:var(--accent);line-height:1.1}
+.sub,.muted{color:var(--muted);margin:2px 0 0}
+#ins{margin:14px 0;max-width:60ch}
+.sun{border-left:3px solid var(--accent);padding:4px 0 4px 14px;margin:14px 0}
+.sun b{font-family:Marcellus,Georgia,serif;font-size:20px;font-weight:400}
+.ctl,.seg{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.limit{border-top:1px solid var(--line);padding-top:14px;margin-top:18px}
+.bar{height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin:8px 0}
+.bar i{display:block;height:100%;background:var(--accent);width:0;transition:width .4s}
+.step{width:34px;height:34px;padding:0}
+#msg{color:var(--accent);min-height:1.5em;margin:6px 0 0}
+#med{text-align:center;padding-top:10px}
+.orb{width:260px;height:260px;margin:24px auto;display:grid;place-items:center}
+.orb i{width:240px;height:240px;transform:scale(.5)}
+.time{font-family:Marcellus,Georgia,serif;font-size:46px}
+.cue{font-family:Marcellus,Georgia,serif;font-size:28px;color:var(--accent);min-height:1.3em}
+.seg{justify-content:center}
+.note{font-size:13px;color:var(--muted);max-width:70ch;margin:28px auto 0;text-align:center}
+@media(max-width:760px){#sn{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01s!important}}
+</style>
+</head>
+<body>
+<header>
+  <div><h1><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="6" fill="#d6336c"/><path d="M16 2v5M16 25v5M2 16h5M25 16h5M6 6l3.5 3.5M22.5 22.5L26 26M26 6l-3.5 3.5M9.5 22.5L6 26" stroke="#d6336c" stroke-width="2" stroke-linecap="round"/></svg>Vajrika</h1><div class="tagl">Surya Namaskar &amp; mindful breathing</div></div>
+  <nav>
+    <button id="tabSn" class="on">Sun salutation</button>
+    <button id="tabMed">5-minute meditation</button>
+  </nav>
+</header>
+<main>
+<section id="sn">
+  <div class="stage">
+    <svg viewBox="60 -10 300 240" role="img" aria-label="Animated figure showing the current yoga pose">
+      <defs><radialGradient id="g"><stop offset="0" stop-color="#ffb98a" stop-opacity=".7"/><stop offset="1" stop-color="#ffb98a" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="110" cy="50" r="70" fill="url(#g)"/>
+      <circle cx="110" cy="50" r="46" fill="none" stroke="#fff" stroke-opacity=".6"/>
+      <circle cx="110" cy="50" r="30" fill="none" stroke="#fff" stroke-opacity=".5"/>
+      <rect x="64" y="214" width="292" height="8" rx="4" fill="#7fd8b8" opacity=".85"/>
+      <g transform="translate(88 212)"><ellipse cx="-14" cy="3" rx="12" ry="4" fill="#7fd8b8"/><ellipse cx="14" cy="3" rx="12" ry="4" fill="#7fd8b8"/>
+      <g fill="#ff9fc0" stroke="#fff" stroke-width="1"><ellipse cy="-9" rx="4.5" ry="10" transform="rotate(-50)"/><ellipse cy="-9" rx="4.5" ry="10" transform="rotate(50)"/><ellipse cy="-9" rx="4.2" ry="10" transform="rotate(-25)"/><ellipse cy="-9" rx="4.2" ry="10" transform="rotate(25)"/><ellipse cy="-10" rx="4.5" ry="11"/></g></g>
+      <ellipse id="shadow" cy="216" ry="4" fill="#000" opacity=".25"/>
+      <g id="fig" stroke-linecap="round" stroke-linejoin="round" fill="none"></g>
+    </svg>
+    <div class="dots" id="dots"></div>
+  </div>
+  <div class="panel">
+    <div class="breath">
+      <div class="orbS"><i id="orbS"></i></div>
+      <div><div class="bt" id="bt"></div><div class="muted" id="stepno"></div></div>
+    </div>
+    <h2 id="pn"></h2>
+    <p class="sub" id="pe"></p>
+    <p id="ins"></p>
+    <div class="sun"><b id="sname"></b> <span class="muted" id="smean"></span><div id="mantra"></div></div>
+    <div class="ctl">
+      <button class="step" id="prev" aria-label="Previous step">&#8249;</button>
+      <button class="primary" id="play">Start cycle</button>
+      <button class="step" id="next" aria-label="Next step">&#8250;</button>
+    </div>
+    <div class="seg" id="pace" style="justify-content:flex-start">
+      <span class="muted">Pace per step</span>
+      <button data-p="8">Slow</button><button data-p="6">Steady</button><button data-p="4">Quick</button>
+    </div>
+    <p id="msg" role="status"></p>
+    <div class="limit">
+      <div><b id="cnt"></b> <span class="muted">cycles done today</span></div>
+      <div class="bar"><i id="barfill"></i></div>
+      <div class="ctl" style="margin:8px 0 0">
+        <span class="muted">Daily limit</span>
+        <button class="step" id="limDn" aria-label="Lower daily limit">&minus;</button>
+        <b id="lim"></b>
+        <button class="step" id="limUp" aria-label="Raise daily limit">+</button>
+        <button id="resetDay" style="margin-left:auto;font-size:13px;padding:5px 12px">Reset today</button>
+      </div>
+      <p class="muted" style="font-size:13px;margin:8px 0 0">One cycle = the 12 steps. Each cycle swaps the leading leg, so an even number of cycles keeps both sides balanced.</p>
+    </div>
+  </div>
+</section>
+
+<section id="med" hidden>
+  <h2>Five minutes of breathing</h2>
+  <p class="muted">Sit comfortably, spine tall, eyes closed or soft. Follow the orb. When the mind wanders, return to the breath.</p>
+  <div class="seg" id="pat">
+    <button data-k="calm" class="on">Calm 4-2-6</button>
+    <button data-k="box">Box 4-4-4-4</button>
+  </div>
+  <div class="orb"><i id="orb"></i></div>
+  <div class="cue" id="cue">Ready</div>
+  <div class="time" id="time">5:00</div>
+  <div class="ctl" style="justify-content:center">
+    <button class="primary" id="mPlay">Begin</button>
+    <button id="mReset">Reset</button>
+  </div>
+</section>
+<p class="note">Practise on an empty stomach, on a non-slip mat. Skip or ask a doctor first if you are pregnant or have back, neck, wrist or blood-pressure problems. Stop if you feel dizzy or pain.</p>
+</main>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const store={get(k,d){try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const dayKey='sn_done_'+(()=>{const d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()})();
+
+/* Poses: [headX,headY, shoulderX,shoulderY, hipX,hipY, handX,handY, footAX,footAY, footBX,footBY, spineCurve] (side view, facing right) */
+const POSES={
+ pray :[250,40,250,60,250,118,274,62,250,210,250,210,3],
+ raise:[216,57,234,64,256,118,215,6,253,210,253,210,12],
+ fold :[288,182,278,166,248,118,294,210,260,210,260,210,-12],
+ lunge:[282,124,268,138,222,172,294,210,268,210,160,205,6],
+ plank:[288,144,270,151,216,172,294,210,130,206,130,206,0],
+ eight:[278,202,262,192,212,165,294,210,145,208,145,208,0],
+ cobra:[256,136,244,152,204,196,294,210,114,204,114,204,10],
+ dog  :[280,168,266,152,224,124,294,210,180,210,180,210,-3]
+};
+const LAB={in:'Inhale',out:'Exhale',hi:'Hold breath in',ho:'Hold breath out'};
+const STEPS=[];
+/* Steps: [pose, Sanskrit name, English name, Surya name, meaning, mantra, breath, instruction] */
+[
+ ['pray','Pranamasana','Prayer pose','Mitra','friend of all','Om Hraam Mitraya Namah','out','Stand tall with feet together and palms joined at the chest. Relax the shoulders, lengthen the spine and breathe out fully.'],
+ ['raise','Hasta Uttanasana','Raised arms pose','Ravi','the radiant one','Om Hreem Ravaye Namah','in','Breathe in and raise both arms overhead, shoulder-width apart. Push the hips slightly forward and arch the upper back gently, looking at your hands.'],
+ ['fold','Padahastasana','Forward bend','Surya','the one who inspires activity','Om Hroom Suryaya Namah','out','Breathe out and fold forward from the hips with a long spine. Place the palms beside your feet; bend the knees if needed.'],
+ ['lunge','Ashwa Sanchalanasana','Equestrian pose','Bhanu','the one who illumines','Om Hraim Bhanave Namah','in','Breathe in and step your {B} leg far back, knee down. Keep the hands planted, lift the chest and look up.'],
+ ['plank','Dandasana','Plank pose','Khaga','the one who moves through the sky','Om Hroum Khagaya Namah','hi','Hold the breath in and step the {F} leg back to meet the other. Keep one straight line from head to heels, arms straight.'],
+ ['eight','Ashtanga Namaskara','Salute with eight limbs','Pushan','giver of strength','Om Hrah Pushne Namah','ho','Breathe out, then hold the breath out. Lower the knees, chest and chin to the floor with the hips lifted: hands, knees, toes, chest and chin touch down.'],
+ ['cobra','Bhujangasana','Cobra pose','Hiranyagarbha','golden cosmic self','Om Hraam Hiranyagarbhaya Namah','in','Breathe in, slide forward and lift the chest into a cobra. Keep the elbows slightly bent, shoulders away from the ears, and look up.'],
+ ['dog','Parvatasana','Mountain pose','Marichi','lord of the dawn rays','Om Hreem Marichaye Namah','out','Breathe out, curl the toes under and lift the hips high into an inverted V. Press the heels toward the floor and let the head hang between the arms.'],
+ ['lunge','Ashwa Sanchalanasana','Equestrian pose (other side)','Aditya','son of Aditi, the boundless','Om Hroom Adityaya Namah','in','Breathe in and step your {B} foot forward between the hands. The {F} leg stays back with the knee down. Lift the chest and look up.'],
+ ['fold','Padahastasana','Forward bend','Savitr','the life-giver','Om Hraim Savitre Namah','out','Breathe out, bring the back foot forward and fold over your legs, palms beside the feet, as in step 3.'],
+ ['raise','Hasta Uttanasana','Raised arms pose','Arka','worthy of praise','Om Hroum Arkaya Namah','in','Breathe in, rise with a long spine and sweep the arms overhead. Arch back gently and look at your hands.'],
+ ['pray','Pranamasana','Prayer pose','Bhaskara','the one who leads to enlightenment','Om Hrah Bhaskaraya Namah','out','Breathe out, lower the arms and join the palms at the chest. Pause, notice your heartbeat, then begin the next cycle.']
+].forEach(a=>STEPS.push({k:a[0],n:a[1],e:a[2],s:a[3],sm:a[4],m:a[5],b:a[6],t:a[7]}));
+
+let limit=store.get('sn_limit',6),done=store.get(dayKey,0),idx=0,playing=false,timer=null,pace=store.get('sn_pace',6),cur=POSES.pray.slice(),raf=0;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function ik(a,b,l1,l2,dir){
+ const dx=b[0]-a[0],dy=b[1]-a[1],d=Math.hypot(dx,dy)||1,dd=Math.min(d,l1+l2-.01);
+ const x=(dd*dd+l1*l1-l2*l2)/(2*dd),h=Math.sqrt(Math.max(0,l1*l1-x*x)),ux=dx/d,uy=dy/d;
+ return [a[0]+ux*x-uy*h*dir,a[1]+uy*x+ux*h*dir];
+}
+const NS='http://www.w3.org/2000/svg',fig=$('#fig'),E={shadow:$('#shadow')};
+const SK='#f4b997',SKD='#cf9674',PN='#7a3b8f',PND='#5e2c70',TP='#ff4f8b',HR='#3b2030',GOLD='#ffc85a';
+function mk(id,tag,att){const e=document.createElementNS(NS,tag);for(const k in att)e.setAttribute(k,att[k]);fig.appendChild(e);E[id]=e}
+const Ln=(id,c,w,o)=>mk(id,'line',{stroke:c,'stroke-width':w,opacity:o||1}),Ci=(id,c,r,o)=>mk(id,'circle',{fill:c,r,opacity:o||1}),Pa=(id,c,w,o)=>mk(id,'path',{stroke:c,'stroke-width':w,fill:'none',opacity:o||1});
+/* draw order: far side, near leg, torso, ponytail, head and face, flower, near arm */
+Ln('thB',PND,15);Ln('shB',PND,10);Ln('ftB',SKD,6);Ln('upF',SKD,7.5);Ln('foF',SKD,6);Ci('hdF',SKD,3.8);
+Ln('thA',PN,16);Ln('shA',PN,11);Ln('ftA',SK,6.5);Ln('hlT','#b06fc6',3.2,.8);Ln('hlS','#b06fc6',2.6,.8);
+Pa('mid',SK,15);Pa('tor',TP,20);Ci('bust',TP,8.5);Ci('bhl','#fff',3,.35);Ci('hip',PN,12.5);
+Pa('pony',HR,8);Pa('phl','#8a4a6a',2.2,.7);Ci('tuft',HR,4.2);
+Ci('hback',HR,11);Ln('neck',SK,7);Ci('head',SK,10.2);Ci('hair',HR,9.4);Ci('fringe',HR,4.2);Ci('tie',TP,3);
+Ci('cheek','#ff8fb3',2.6,.55);Ln('brow',HR,1.1);Ci('eye','#2b1520',1.5);Ci('eyeh','#fff',.5);Ln('lash','#2b1520',.9);
+Ci('nose',SK,1.6);Ci('lip','#e0457b',1.5);Ci('ear',GOLD,1.8);
+for(let i=0;i<5;i++)Ci('pt'+i,'#ff8fb3',2.6);Ci('fc','#ffd166',1.6);
+Ln('up',SK,8.5);Ln('fo',SK,6.5);Ln('hlU','#fff',2.2,.35);Ln('hlF','#fff',1.8,.35);
+mk('bangle','circle',{fill:'none',stroke:GOLD,'stroke-width':1.8,r:4.6});Ci('hd',SK,4);
+const set=(e,o)=>{for(const k in o)e.setAttribute(k,o[k])};
+const ln=(id,a,b)=>set(E[id],{x1:a[0],y1:a[1],x2:b[0],y2:b[1]});
+const ci=(id,a)=>set(E[id],{cx:a[0],cy:a[1]});
+const LT=[-.6,-.8]; /* light comes from the upper left */
+function hl(id,a,b,off){
+ const dx=b[0]-a[0],dy=b[1]-a[1],d=Math.hypot(dx,dy)||1;let nx=-dy/d,ny=dx/d;
+ if(nx*LT[0]+ny*LT[1]<0){nx=-nx;ny=-ny}
+ ln(id,[a[0]+dx*.15+nx*off,a[1]+dy*.15+ny*off],[b[0]-dx*.15+nx*off,b[1]-dy*.15+ny*off]);
+}
+function leg(P,A,t,s,f,h1,h2){
+ const k=ik(P,A,46,46,-1);ln(t,P,k);ln(s,k,A);
+ const dx=A[0]-k[0],dy=A[1]-k[1],d=Math.hypot(dx,dy)||1;
+ ln(f,A,[A[0]+dy/d*13,Math.min(212,A[1]-dx/d*13)]); /* foot swings with the shin; toes stop at the mat */
+ if(h1){hl(h1,P,k,4);hl(h2,k,A,3.2)}
+}
+function arm(S,W,u,f,h,h1,h2){
+ const e=ik(S,W,36,34,1);ln(u,S,e);ln(f,e,W);ci(h,W);
+ if(h1){hl(h1,S,e,2.6);hl(h2,e,W,2);
+  const dx=W[0]-e[0],dy=W[1]-e[1],d=Math.hypot(dx,dy)||1;ci('bangle',[W[0]-dx/d*5.5,W[1]-dy/d*5.5])}
+}
+let tw=null,bre=0;
+function render(p){
+ const [hx,hy,sx,sy,px,py,wx,wy,ax,ay,bx,by,c]=p,P=[px,py],A=[ax,ay],B=[bx,by];
+ const tx=sx-px,ty=sy-py,tl=Math.hypot(tx,ty)||1,ux=tx/tl,uy=ty/tl;
+ const S=[sx+ux*bre,sy+uy*bre],H=[hx+ux*bre*1.3,hy+uy*bre*1.3];
+ leg(P,B,'thB','shB','ftB');
+ arm([S[0]+3,S[1]-2],[wx+7,wy],'upF','foF','hdF');
+ leg(P,A,'thA','shA','ftA','hlT','hlS');
+ const cx=(px+S[0])/2-uy*2*c,cy=(py+S[1])/2+ux*2*c;
+ set(E.mid,{d:'M'+px+' '+py+'Q'+cx+' '+cy+' '+S[0]+' '+S[1]});
+ set(E.tor,{d:'M'+(.25*px+.5*cx+.25*S[0])+' '+(.25*py+.5*cy+.25*S[1])+'Q'+((cx+S[0])/2)+' '+((cy+S[1])/2)+' '+S[0]+' '+S[1]});
+ const BP=[px+ux*tl*.8-uy*7,py+uy*tl*.8+ux*7];
+ ci('bust',BP);ci('bhl',[BP[0]-2,BP[1]-2.5]);ci('hip',P);ln('neck',S,H);
+ const nx=H[0]-S[0],ny=H[1]-S[1],nl=Math.hypot(nx,ny)||1,n=[nx/nl,ny/nl],f=[-n[1],n[0]];
+ const hp=(a,b)=>[H[0]+f[0]*a+n[0]*b,H[1]+f[1]*a+n[1]*b]; /* a = toward the face, b = toward the crown */
+ /* high ponytail: hangs with gravity, sways with the breath */
+ const T=hp(-8,2);let dx=-f[0]*.4,dy=1;const dl=Math.hypot(dx,dy);dx/=dl;dy/=dl;
+ const Te=[T[0]+dx*34+bre*2,T[1]+dy*34],M=[T[0]+dx*17-dy*8,T[1]+dy*17+dx*8];
+ const pd=o=>'M'+(T[0]+o)+' '+T[1]+'Q'+(M[0]+o)+' '+M[1]+' '+(Te[0]+o)+' '+Te[1];
+ set(E.pony,{d:pd(0)});set(E.phl,{d:pd(-1.8)});ci('tuft',Te);
+ ci('hback',hp(-5.5,-1));ci('head',H);ci('hair',hp(-4.2,2.8));ci('fringe',hp(2.4,8.8));ci('tie',T);
+ ci('cheek',hp(6.2,-2.4));ln('brow',hp(5.6,4.6),hp(8,4.2));
+ ci('eye',hp(6.6,1.2));ci('eyeh',hp(6.9,1.6));ln('lash',hp(6.6,1.2),hp(8.1,2.4));
+ ci('nose',hp(10.2,-.8));ci('lip',hp(8.8,-5));ci('ear',hp(-1.2,-9.8));
+ const fc=hp(-2.5,8.4);
+ for(let i=0;i<5;i++){const a=i*1.2566;ci('pt'+i,[fc[0]+Math.cos(a)*3.2,fc[1]+Math.sin(a)*3.2])}
+ ci('fc',fc);
+ arm(S,[wx,wy],'up','fo','hd','hlU','hlF');
+ const mn=Math.min(ax,bx,wx),mx=Math.max(ax,bx,wx);
+ set(E.shadow,{cx:(mn+mx)/2,rx:(mx-mn)/2+24});
+}
+/* Joints move on a staggered schedule [delay, span]: hips lead, then shoulders, hands, head and feet follow */
+const TW=[[.12,.88],[.12,.88],[.05,.9],[.05,.9],[0,.9],[0,.9],[0,.8],[0,.8],[.08,.92],[.08,.92],[.16,.84],[.16,.84],[.05,.9]];
+const ease=u=>(1-Math.cos(Math.PI*u))/2;
+const loc=(u,i)=>Math.min(1,Math.max(0,(u-TW[i][0])/TW[i][1]));
+function moveTo(key,ms){
+ const to=POSES[key];
+ if(reduce||ms<=0){cur=to.slice();tw=null;return}
+ tw={from:cur.slice(),to,t0:performance.now(),ms};
+}
+function loop(t){
+ if(tw){
+  const u=Math.min(1,(t-tw.t0)/tw.ms),{from,to}=tw;
+  cur=from.map((v,i)=>v+(to[i]-v)*ease(loc(u,i)));
+  [8,10].forEach(i=>{ /* a stepping foot lifts off the mat in an arc */
+   const d=Math.hypot(to[i]-from[i],to[i+1]-from[i+1]);
+   if(d>15)cur[i+1]-=Math.sin(Math.PI*loc(u,i))*Math.min(22,d*.28);
+  });
+  if(u>=1){cur=to.slice();tw=null}
+ }
+ bre=reduce?0:Math.sin(t/900)*1.5; /* gentle breathing in the chest */
+ render(cur);requestAnimationFrame(loop);
+}
+function show(i,instant){
+ idx=i;const s=STEPS[i],back=done%2?'left':'right',fwd=done%2?'right':'left';
+ $('#pn').textContent=s.n;$('#pe').textContent=s.e;
+ $('#ins').textContent=s.t.replace(/\{B\}/g,back).replace(/\{F\}/g,fwd);
+ $('#sname').textContent=s.s;$('#smean').textContent='('+s.sm+')';$('#mantra').textContent=s.m;
+ $('#bt').textContent=LAB[s.b];$('#stepno').textContent='Step '+(i+1)+' of 12';
+ moveTo(s.k,instant?0:Math.min(1600,pace*350));
+ const o=$('#orbS'),big=s.b==='in'||s.b==='hi';
+ o.style.transitionDuration=(s.b==='hi'?.8:pace*.9)+'s';
+ o.style.transform='scale('+(big?1:.5)+')';
+ $$('#dots button').forEach((d,j)=>{d.classList.toggle('on',j===i);d.classList.toggle('done',j<i)});
+ $('#prev').disabled=i===0;
+}
+function msg(t){$('#msg').textContent=t}
+function ui(){
+ $('#cnt').textContent=done+' / '+limit;
+ $('#barfill').style.width=Math.min(100,done/limit*100)+'%';
+ $('#lim').textContent=limit;
+ const atLimit=done>=limit;
+ $('#play').textContent=playing?'Pause':(idx>0?'Resume':'Start cycle');
+ $('#play').disabled=!playing&&atLimit;
+ $('#next').disabled=atLimit&&!playing;
+ $$('#pace button').forEach(b=>b.classList.toggle('on',+b.dataset.p===pace));
+ if(atLimit&&!playing)msg('Daily limit reached ('+limit+' cycles). Rest well and come back tomorrow.');
+}
+function chime(){
+ try{const c=new (window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain();
+  o.frequency.value=528;o.connect(g);g.connect(c.destination);
+  g.gain.setValueAtTime(.2,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+2);
+  o.start();o.stop(c.currentTime+2);}catch(e){}
+}
+function sched(){
+ clearTimeout(timer);
+ timer=setTimeout(()=>{if(idx<11){show(idx+1);sched()}else finish()},pace*1000);
+}
+function finish(){
+ clearTimeout(timer);playing=false;done++;store.set(dayKey,done);
+ show(0);ui();chime();
+ if(done<limit)msg('Cycle '+done+' complete. Breathe naturally, then start the next cycle when ready.');
+}
+function pause(){playing=false;clearTimeout(timer);ui()}
+
+$('#play').onclick=()=>{
+ if(playing){pause();return}
+ if(done>=limit)return;
+ playing=true;msg('');show(idx);ui();sched();
+};
+$('#next').onclick=()=>{if(idx<11){show(idx+1);if(playing)sched()}else finish()};
+$('#prev').onclick=()=>{if(idx>0){show(idx-1);if(playing)sched()}};
+$('#limUp').onclick=()=>{limit=Math.min(24,limit+1);store.set('sn_limit',limit);msg('');ui()};
+$('#limDn').onclick=()=>{limit=Math.max(1,limit-1);store.set('sn_limit',limit);ui()};
+$('#resetDay').onclick=()=>{done=0;store.set(dayKey,0);msg('');ui();show(0)};
+$$('#pace button').forEach(b=>b.onclick=()=>{pace=+b.dataset.p;store.set('sn_pace',pace);ui();show(idx,true);if(playing)sched()});
+STEPS.forEach((s,i)=>{
+ const b=document.createElement('button');b.textContent=i+1;b.title=s.n;
+ b.onclick=()=>{show(i);if(playing)sched()};$('#dots').appendChild(b);
+});
+
+/* Meditation */
+const PAT={
+ calm:[['Breathe in',4,1],['Hold',2,1],['Breathe out',6,.5]],
+ box:[['Breathe in',4,1],['Hold',4,1],['Breathe out',4,.5],['Hold',4,.5]]
+};
+let pat='calm',mT=0,mRun=false,mLast=0,mInt=null,mPh=-1;
+const TOTAL=300;
+function fmt(s){s=Math.max(0,Math.ceil(s));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+function mDraw(){
+ $('#time').textContent=fmt(TOTAL-mT);
+ const p=PAT[pat],cyc=p.reduce((a,x)=>a+x[1],0);let r=mT%cyc,i=0;
+ while(r>=p[i][1]){r-=p[i][1];i++}
+ if(i!==mPh){mPh=i;$('#cue').textContent=p[i][0];
+  const o=$('#orb');o.style.transitionDuration=p[i][1]+'s';o.style.transform='scale('+p[i][2]+')'}
+}
+function mTick(){
+ const n=performance.now();mT+=(n-mLast)/1000;mLast=n;
+ if(mT>=TOTAL){mT=TOTAL;mStop();$('#cue').textContent='Complete. Sit quietly for a moment.';$('#time').textContent='0:00';$('#mPlay').textContent='Begin';chime();return}
+ mDraw();
+}
+function mStop(){mRun=false;clearInterval(mInt);$('#mPlay').textContent=mT>0&&mT<TOTAL?'Resume':'Begin'}
+$('#mPlay').onclick=()=>{
+ if(mRun){mStop();return}
+ if(mT>=TOTAL)mReset();
+ mRun=true;mLast=performance.now();mPh=-1;mDraw();mInt=setInterval(mTick,200);$('#mPlay').textContent='Pause';
+};
+function mReset(){
+ mStop();mT=0;mPh=-1;$('#time').textContent=fmt(TOTAL);$('#cue').textContent='Ready';
+ const o=$('#orb');o.style.transitionDuration='1s';o.style.transform='scale(.5)';$('#mPlay').textContent='Begin';
+}
+$('#mReset').onclick=mReset;
+$$('#pat button').forEach(b=>b.onclick=()=>{pat=b.dataset.k;$$('#pat button').forEach(x=>x.classList.toggle('on',x===b));mReset()});
+
+/* Tabs */
+function tab(m){
+ $('#sn').hidden=m;$('#med').hidden=!m;
+ $('#tabSn').classList.toggle('on',!m);$('#tabMed').classList.toggle('on',m);
+ if(m)pause();else mStop();
+}
+$('#tabSn').onclick=()=>tab(false);$('#tabMed').onclick=()=>tab(true);
+
+show(0,true);ui();requestAnimationFrame(loop);
+</script>
+</body>
+</html>
